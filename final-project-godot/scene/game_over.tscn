@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyevk3ew64jaq"]
+
+[ext_resource type="FontFile" uid="uid://5ygr5un510nm" path="res://Fonts/subatomic.tsoonami.ttf" id="1_8uq5u"]
+[ext_resource type="Script" uid="uid://cg34wn4hn2g7p" path="res://scene/game_over.gd" id="1_mxr41"]
+[ext_resource type="PackedScene" uid="uid://dcm0mvsb8cona" path="res://scene/level.tscn" id="2_bc2bx"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mxr41")
+level_scene = ExtResource("2_bc2bx")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08468998, 0.08468991, 0.08468994, 1)
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -25.0
+offset_right = 46.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8uq5u")
+theme_override_font_sizes/font_size = 60
+text = "Game Over "
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8uq5u")
+theme_override_font_sizes/font_size = 25
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -49.0
+offset_right = 99.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = -20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8uq5u")
+theme_override_font_sizes/font_size = 19
+text = "Press space to start again
+"

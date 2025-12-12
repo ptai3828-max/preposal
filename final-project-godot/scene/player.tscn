@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1rsslo4aibol"]
+
+[ext_resource type="Script" uid="uid://cvgk8506g7psi" path="res://scene/player.gd" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://d16hf13gl42q2" path="res://images/player.png" id="1_xo3ru"]
+[ext_resource type="AudioStream" uid="uid://rbotqrtjy82q" path="res://sounds/laserSound.wav" id="3_fvtld"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 22
+script = ExtResource("1_hjaqi")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_xo3ru")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-29.34412, -46.18099, -13.922535, -69.422646, -4.990795, -77.43664, 2.8907168, -79.13422, 13.805473, -71.46166, 22.925694, -56.80487, 53.24312, -2.0522118, 68.24135, 8.674065, 64.80523, 19.81826, 37.1537, 20.445135, 32.53487, 27.276419, 36.082993, 40.215157, 23.94457, 55.13691, 13.259249, 43.227924, 13.126771, 32.598602, 8.146027, 33.037, 11.541189, 48.800022, 0.14707965, 63.05394, -11.797428, 48.24419, -8.284829, 35.68785, -13.265573, 36.126244, -24.221289, 55.36091, -34.90661, 43.451923, -33.397507, 28.66265, -36.430756, 19.292517, -65.49442, 19.84291, -68.75711, 14.709209, -64.72964, 5.72147, -50.89363, -1.3187714, -44.250828, -19.37073)
+
+[node name="LaserStartPos" type="Marker2D" parent="."]
+position = Vector2(0, -119)
+gizmo_extents = 120.0
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Lasersound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fvtld")
+volume_db = 6.058
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]

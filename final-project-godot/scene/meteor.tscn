@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://eytc10nu0icw"]
+
+[ext_resource type="Script" uid="uid://c5acqcwlmiy5j" path="res://scene/meteor.gd" id="1_xad4d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xad4d"]
+radius = 50.619038
+height = 105.55059
+
+[node name="Meteor" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_xad4d")
+
+[node name="Meteor" type="Sprite2D" parent="."]
+position = Vector2(12.000023, -6.999998)
+scale = Vector2(0.8, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 0.61086524
+scale = Vector2(0.895, 0.895)
+shape = SubResource("CapsuleShape2D_xad4d")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
